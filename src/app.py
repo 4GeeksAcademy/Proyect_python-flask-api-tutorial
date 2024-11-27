@@ -26,10 +26,14 @@ def add_new_todo():
     # Agregar el nuevo 'todo' a la lista global
     todos.append(request_body)
 
-    return jsonify(todos), 201
+    return jsonify(todos)
 
 
 # Endpoint DELETE para borrar una tarea de la lista 'todos'
+# @app.route('/todos/<int:position>', methods=['DELETE'])
+# def delete_todo(position):
+#     print("This is the position to delete:", position)
+#     return 'something'
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
     todos.pop(position)
